@@ -14,7 +14,7 @@
 		"preserveConstEnums": true,
 		"outDir": "./dist",
 		"rootDir": "./src/",
-    "strict": true,
+    "strict": false,
 		"sourceMap": true,
 		"lib": ["es6", "dom", "es2017", "es7"],
 		"resolveJsonModule": true,
