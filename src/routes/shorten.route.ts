@@ -1,9 +1,9 @@
-import { Response, Request, Router } from 'express'
+import { Router } from "express";
+import { ShortenController } from "../controllers/shorten.controller";
 
-const shortenRoute = Router()
+const shortenController = new ShortenController();
+const shortenRoute = Router();
 
-shortenRoute.post('/shorten', (req: Request, res: Response) => {
-  return res.status(200).json({ "json": "OK"})
-})
+shortenRoute.post("/shorten", shortenController.create);
 
-export default shortenRoute
+export default shortenRoute;
