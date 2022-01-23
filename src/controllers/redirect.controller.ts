@@ -7,7 +7,6 @@ export class redirectionController {
 
     const isHash = await URLModel.findOne({ hash });
 
-    console.log(isHash);
     if (isHash) {
       const { originURL } = isHash;
       res.redirect(originURL);

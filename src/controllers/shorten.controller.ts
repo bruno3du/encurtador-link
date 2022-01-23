@@ -1,11 +1,19 @@
 import { URLModel } from "../database/models/shorten.model";
 import { Response, Request } from "express";
 import { nanoid } from "nanoid";
+import { isUri } from "valid-url";
 
 export class ShortenController {
   public async create(req: Request, res: Response) {
     const { originURL } = req.body;
-    console.log(originURL);
+    const link = isUri(originURL);
+
+    if (!link) {
+      res
+        .status(400)
+        .json({ message: "Verify if you are sending a valid url" });
+      return;
+    }
 
     const isShortedUrlExist = await URLModel.findOne({ originURL });
 
