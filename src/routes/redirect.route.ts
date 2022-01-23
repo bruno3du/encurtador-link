@@ -1,9 +1,9 @@
-import { Response, Request, Router } from 'express'
+import { redirectionController } from './../controllers/redirect.controller';
+import { Router } from "express";
 
-const redirectRoute = Router()
+const redController = new redirectionController()
+const redirectRoute = Router();
 
-redirectRoute.get('/:hash', (req: Request, res: Response) => {
-  return res.status(200).json({ "json": "OK"})
-})
+redirectRoute.get("/:hash", redController.get);
 
-export default redirectRoute
+export default redirectRoute;

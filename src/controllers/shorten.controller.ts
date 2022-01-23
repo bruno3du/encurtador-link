@@ -20,6 +20,5 @@ export class ShortenController {
     const newURL = await URLModel.create({ hash, shortURL, originURL });
 
     return res.status(201).json(newURL);
-
   }
 }
